@@ -1,0 +1,31 @@
+From 8c453695c05dd1e7ee7da183fdaf32be0f2f55e0 Mon Sep 17 00:00:00 2001
+From: Axel Huebl <axel.huebl@plasma.ninja>
+Date: Sat, 6 Mar 2021 16:02:03 -0800
+Subject: [PATCH 5/5] Install CMake Dir
+
+On Windows, the CMake install paths are slightly different.
+https://cmake.org/cmake/help/v3.19/command/find_package.html#search-procedure
+---
+ CMakeLists.txt | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 8826e0d..1c431d5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -405,7 +405,11 @@ endif()
+ # Install rules.
+ # GNU Filesystem Conventions
+ include( GNUInstallDirs )
+-set( install_configdir "${CMAKE_INSTALL_LIBDIR}/blaspp" )
++if(WIN32)
++    set( install_configdir "blaspp" )
++else()
++    set( install_configdir "${CMAKE_INSTALL_LIBDIR}/blaspp" )
++endif()
+ 
+ # Install library and add to <package>Targets.cmake
+ install(
+-- 
+2.25.1
+
