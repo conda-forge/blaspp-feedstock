@@ -1,6 +1,6 @@
 {% set name = "blaspp" %}
 {% set version = "2020.10.02" %}
-{% set build = 1 %}
+{% set build = 2 %}
 {% set sha256 = "36e45bb5a8793ba5d7bc7c34fc263f91f92b0946634682937041221a6bf1a150" %}
 
 package:
@@ -19,6 +19,7 @@ source:
     - 0003-Missing-include-for-std-max.patch
     - 0004-Install-RUNTIME.patch
     - 0005-Install-CMake-Dir.patch
+    - 0006-WINDOWS_EXPORT_ALL_SYMBOLS.patch
 
 build:
   number: {{ build }}

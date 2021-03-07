@@ -1,0 +1,31 @@
+From 944c126bbf840ab95e2d9ca48d63ccf257701816 Mon Sep 17 00:00:00 2001
+From: Axel Huebl <axel.huebl@plasma.ninja>
+Date: Sat, 6 Mar 2021 20:04:30 -0800
+Subject: [PATCH 6/6] WINDOWS_EXPORT_ALL_SYMBOLS
+
+Adding this target property exports all symbols of a library by
+default on Windows - so it essentially behaves like symbol
+exports on Unix.
+---
+ CMakeLists.txt | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 1c431d5..59603bf 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -320,7 +320,10 @@ endif()
+ 
+ # Use and export -std=c++11; don't allow -std=gnu++11 extensions.
+ target_compile_features( blaspp PUBLIC cxx_std_11 )
+-set_target_properties( blaspp PROPERTIES CXX_EXTENSIONS false )
++set_target_properties( blaspp PROPERTIES
++    CXX_EXTENSIONS OFF
++    WINDOWS_EXPORT_ALL_SYMBOLS ON
++)
+ 
+ if (CMAKE_VERSION VERSION_GREATER_EQUAL 3.15)
+     # Conditionally add -Wall. See CMake tutorial.
+-- 
+2.25.1
+
