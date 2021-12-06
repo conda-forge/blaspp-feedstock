@@ -1,7 +1,7 @@
 {% set name = "blaspp" %}
-{% set version = "2020.10.02" %}
-{% set build = 2 %}
-{% set sha256 = "36e45bb5a8793ba5d7bc7c34fc263f91f92b0946634682937041221a6bf1a150" %}
+{% set version = "2021.04.01" %}
+{% set build = 0 %}
+{% set sha256 = "11fc7b7e725086532ada58c0de53f30e480c2a06f1497b8081ea6d8f97e26150" %}
 
 package:
   name: {{ name|lower }}
@@ -11,15 +11,6 @@ source:
   fn: {{ version }}.tar.gz
   url: https://bitbucket.org/icl/blaspp/downloads/blaspp-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    # Fix MSVC builds
-    # https://bitbucket.org/icl/blaspp/pull-requests/31/wip-msvc-windows-builds
-    - 0001-GNU-extension-__attribute__-format.patch
-    - 0002-Complex-Support-OpenBLAS-w-MSVC.patch
-    - 0003-Missing-include-for-std-max.patch
-    - 0004-Install-RUNTIME.patch
-    - 0005-Install-CMake-Dir.patch
-    - 0006-WINDOWS_EXPORT_ALL_SYMBOLS.patch
 
 build:
   number: {{ build }}
