@@ -9,7 +9,7 @@ cmake -S . -B build             \
     -Dbuild_tests=OFF           \
     -Duse_cmake_find_blas=ON    \
     -Duse_openmp=ON             \
-    -Duse_cuda=OFF              \
+    -Dgpu_backend=none          \
     ${CMAKE_ARGS}
 
 cmake --build build --parallel ${CPU_COUNT}

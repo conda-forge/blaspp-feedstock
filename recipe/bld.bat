@@ -11,7 +11,7 @@ cmake -S . -B build             ^
     -Dbuild_tests=OFF           ^
     -Duse_cmake_find_blas=ON    ^
     -Duse_openmp=OFF            ^
-    -Duse_cuda=OFF
+    -Dgpu_backend=none
 if errorlevel 1 exit 1
 
 cmake --build build --config Release --parallel 2
