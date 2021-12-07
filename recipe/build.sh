@@ -1,5 +1,11 @@
 #!/bin/bash
 
+# work-around for https://bitbucket.org/icl/blaspp/issues/13
+if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
+    export CMAKE_ARGS="${CMAKE_ARGS} -Dblas_config_cache=${PREFIX}/lib/libblas${SHLIB_EXT}"
+    export CMAKE_ARGS="${CMAKE_ARGS} -Dcblas_config_cache=${PREFIX}/lib/libblas${SHLIB_EXT} -Dblaspp_cblas_libraries=-lcblas"
+fi
+
 cmake -S . -B build             \
     -DCMAKE_INSTALL_LIBDIR=lib        \
     -DCMAKE_INSTALL_PREFIX=${PREFIX}  \
