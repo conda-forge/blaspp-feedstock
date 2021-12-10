@@ -21,8 +21,4 @@ cmake -S . -B build             \
 
 cmake --build build --parallel ${CPU_COUNT}
 
-if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" == "1" ]]; then
-    echo "Skipping tests due to cross-compiled target..."
-else
-    cmake --build build --target install
-fi
+cmake --build build --target install
