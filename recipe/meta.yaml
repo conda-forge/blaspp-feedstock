@@ -1,7 +1,7 @@
 {% set name = "blaspp" %}
-{% set version = "2021.04.01" %}
-{% set build = 2 %}
-{% set sha256 = "11fc7b7e725086532ada58c0de53f30e480c2a06f1497b8081ea6d8f97e26150" %}
+{% set version = "2022.05.00" %}
+{% set build = 0 %}
+{% set sha256 = "696277859bc1bd9c0aeb0cb170a1e259765c0a86af49b20afa0ffcbabc3e207e" %}
 
 package:
   name: {{ name|lower }}
